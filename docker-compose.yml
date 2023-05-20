@@ -1,0 +1,74 @@
+version: "3"
+services:
+  stock_pythondev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: stock_pythondev
+    container_name: stock_pythondev
+    working_dir: '/home/'
+    volumes:
+      - ./:/home/
+    tty: true
+    networks:
+      - app-net
+  # MySQL
+  db:
+    image: mysql:5.7
+    container_name: stock_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: stock_database
+      MYSQL_USER: yu10kami
+      MYSQL_PASSWORD: thisisatest
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./DB/data:/var/lib/mysql
+      - ./DB/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./DB/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    networks:
+      - app-net
+
+  # phpMyAdmin
+  phpmyadmin:
+    container_name: stock_phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=stock_mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    ports:
+      - 8080:80
+    networks:
+      - app-net
+
+  # Jupyterlab
+  jupyterlab:
+    build:
+      context: .
+      dockerfile: Dockerfile_for_jupyter
+    image: stock_pythondev_jupyter
+    container_name: stock_pythondev_jupyter
+    volumes:
+      - .:/home/JupyterLab/codes
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - 8888:8888
+    command:
+      jupyter lab 
+          --ip=0.0.0.0
+          --allow-root
+          --no-browser
+          --NotebookApp.notebook_dir='/home/JupyterLab/codes'
+          --NotebookApp.token=''
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
