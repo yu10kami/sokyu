@@ -20,3 +20,8 @@ mysqlclient
 sktime
 shap
 pdpbox
+yahoo_fin
+quantstats
+ffn
+pyfolio
+arch
