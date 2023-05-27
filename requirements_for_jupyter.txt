@@ -20,6 +20,11 @@ mysqlclient
 sktime
 shap
 pdpbox
+yahoo_fin
+quantstats
+ffn
+pyfolio
+arch
 # Jupyter lib
 ipython
 ipynb
