@@ -25,5 +25,5 @@ We have confirmed that this can be activated in the following environments.
 ## Note
 I don't test environments under Linux and Mac.  
 
-We hope you enjoy your life of stock market analysis!  
+We hope you enjoy your life of stock market and management analysis!  
 Thank you!
