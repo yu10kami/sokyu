@@ -1,5 +1,6 @@
 version: "3"
 services:
+  # Main_PythonDevEnv
   stock_pythondev:
     build:
       context: .
@@ -12,6 +13,7 @@ services:
     tty: true
     networks:
       - app-net
+  
   # MySQL
   db:
     image: mysql:5.7
@@ -19,8 +21,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: stock_database
-      MYSQL_USER: yu10kami
-      MYSQL_PASSWORD: thisisatest
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: password
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
@@ -51,10 +53,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_for_jupyter
-    image: stock_pythondev_jupyter
-    container_name: stock_pythondev_jupyter
+    image: stock_jupyter
+    container_name: stock_jupyter
     volumes:
-      - .:/home/JupyterLab/codes
+      - .:/home/
     environment:
       TZ: Asia/Tokyo
     ports:
@@ -64,7 +66,7 @@ services:
           --ip=0.0.0.0
           --allow-root
           --no-browser
-          --NotebookApp.notebook_dir='/home/JupyterLab/codes'
+          --NotebookApp.notebook_dir='/home/'
           --NotebookApp.token=''
     networks:
       - app-net
