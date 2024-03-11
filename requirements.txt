@@ -1,27 +1,39 @@
+# Common lib
 numpy
 scipy
 seaborn
-scikit-learn
 numba
 networkx
 Selenium
-pandas-datareader
-yfinance
-yahooquery
-mplfinance
+tqdm
+mysqlclient
+# Machine learning lib
+scikit-learn
 xgboost
 lightgbm
+arch
 statsmodels
 prophet
 gluonts
 mxnet
-tqdm
-mysqlclient
 sktime
 shap
 pdpbox
+dtreeviz
+# Optimization lib
+GPy
+GPyOpt
+pulp
+mip
+gurobipy
+pymoo
+# Finance lib
+pandas-datareader
+yfinance
+yahooquery
+mplfinance
 yahoo_fin
 quantstats
 ffn
 pyfolio
-arch
+backtesting

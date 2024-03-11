@@ -4,7 +4,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y vim \
                     default-libmysqlclient-dev \
-                    mariadb-client
+                    mariadb-client \
+                    tmux
 
 RUN wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz && \
   tar -xvzf ta-lib-0.4.0-src.tar.gz && \
