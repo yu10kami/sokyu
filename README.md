@@ -1,5 +1,5 @@
 # sokyu
-Docker environment for stock market analysis.
+Docker environment for stock market analysis and management analysis.
 
 ## Features
 Only the stock price forecast using this environment has now been verified. Other tasks, such as portfolio optimization, will be worked on.
