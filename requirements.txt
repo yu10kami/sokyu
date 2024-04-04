@@ -7,6 +7,8 @@ networkx
 Selenium
 tqdm
 mysqlclient
+pandas-dataclasses
+openpyxl
 # Machine learning lib
 scikit-learn
 xgboost
@@ -20,6 +22,7 @@ sktime
 shap
 pdpbox
 dtreeviz
+mlxtend
 # Optimization lib
 GPy
 GPyOpt
