@@ -1,4 +1,3 @@
-version: "3"
 services:
   # Main_PythonDevEnv
   stock_pythondev:
